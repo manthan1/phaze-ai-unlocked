@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import phazeLogo from "@/assets/phaze-ai-logo.png.asset.json";
+import jecrcLogo from "@/assets/jecrc-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,47 +23,142 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-function Logo() {
+function Logo({ size = "default" }: { size?: "default" | "lg" }) {
+  const h = size === "lg" ? "h-10 sm:h-11" : "h-8 sm:h-9";
   return (
-    <div className="flex items-center gap-3">
-      <div className="flex items-center gap-2">
-        <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
-          P
-        </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
-          Phaze AI
-        </span>
-      </div>
-      <span className="text-muted-foreground/60 font-display text-lg">×</span>
-      <div className="flex items-center gap-2">
-        <div className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface-elevated font-display text-sm font-bold">
-          JU
-        </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
-          JECRC
-        </span>
-      </div>
+    <div className="flex items-center gap-3 sm:gap-4">
+      <img
+        src={phazeLogo.url}
+        alt="Phaze AI"
+        className={`${h} w-auto object-contain`}
+      />
+      <span className="text-muted-foreground/50 font-display text-xl leading-none">×</span>
+      <img
+        src={jecrcLogo.url}
+        alt="JECRC University"
+        className={`${h} w-auto object-contain`}
+      />
     </div>
   );
 }
 
+const NAV_LINKS: { href: string; label: string }[] = [
+  { href: "#sessions", label: "Sessions" },
+  { href: "#outcomes", label: "Outcomes" },
+  { href: "#trainer", label: "Trainers" },
+  { href: "#faq", label: "FAQ" },
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Logo />
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6">
+        <a href="#" className="shrink-0">
+          <Logo />
+        </a>
+
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#sessions" className="hover:text-foreground">Sessions</a>
-          <a href="#outcomes" className="hover:text-foreground">Outcomes</a>
-          <a href="#trainer" className="hover:text-foreground">Trainers</a>
-          <a href="#faq" className="hover:text-foreground">FAQ</a>
+          {NAV_LINKS.map((l) => (
+            <a key={l.href} href={l.href} className="hover:text-foreground">
+              {l.label}
+            </a>
+          ))}
         </nav>
         <a
           href="#register"
-          className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition hover:opacity-90"
+          className="hidden rounded-2xl bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90 md:inline-flex"
         >
           Reserve seat
         </a>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="relative z-[60] grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-surface-elevated transition active:scale-95 md:hidden"
+        >
+          <span className="relative block h-4 w-5">
+            <span
+              className={`absolute left-0 top-0 block h-0.5 w-5 bg-foreground transition-transform duration-300 ${
+                open ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[7px] block h-0.5 w-5 bg-foreground transition-opacity duration-200 ${
+                open ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[14px] block h-0.5 w-5 bg-foreground transition-transform duration-300 ${
+                open ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      {/* Mobile fullscreen overlay */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        aria-hidden={!open}
+      >
+        <div
+          className="absolute inset-0 bg-background transition-[clip-path] duration-500 ease-[cubic-bezier(0.83,0,0.17,1)]"
+          style={{
+            clipPath: open
+              ? "circle(150% at calc(100% - 36px) 36px)"
+              : "circle(0% at calc(100% - 36px) 36px)",
+          }}
+        />
+        <div
+          className={`relative flex h-full flex-col px-6 pt-24 pb-10 transition-opacity duration-300 ${
+            open ? "opacity-100 delay-200" : "opacity-0"
+          }`}
+        >
+          <nav className="flex flex-col gap-2">
+            {NAV_LINKS.map((l, i) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="font-display text-4xl font-semibold tracking-tight text-foreground transition-transform"
+                style={{
+                  transform: open ? "translateY(0)" : "translateY(20px)",
+                  opacity: open ? 1 : 0,
+                  transitionProperty: "transform, opacity",
+                  transitionDuration: "400ms",
+                  transitionDelay: open ? `${250 + i * 60}ms` : "0ms",
+                }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <div className="mt-auto pt-10">
+            <a
+              href="#register"
+              onClick={() => setOpen(false)}
+              className="block rounded-2xl bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition hover:opacity-90"
+            >
+              Reserve your seat →
+            </a>
+            <p className="mt-4 text-center text-xs uppercase tracking-widest text-muted-foreground">
+              18 July · JECRC University, Jaipur
+            </p>
+          </div>
+        </div>
       </div>
     </header>
   );
@@ -74,8 +172,8 @@ function Hero() {
         className="absolute -top-40 right-0 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle, var(--accent-lime), transparent 70%)" }}
       />
-      <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-24">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-muted-foreground">
+      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-6 md:pt-24">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-2xl border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-accent-lime" />
           Phaze AI × JECRC University · Jaipur · 18 July
         </div>
@@ -91,17 +189,17 @@ function Hero() {
           practical sessions built for business owners, not engineers.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-10 flex flex-nowrap items-center gap-3 sm:gap-4">
           <a
             href="#register"
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-4 text-base font-medium text-background transition hover:opacity-90"
+            className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-foreground px-4 py-3.5 text-sm font-medium text-background transition hover:opacity-90 sm:flex-none sm:px-7 sm:py-4 sm:text-base"
           >
             Reserve your seat
             <span className="transition group-hover:translate-x-0.5">→</span>
           </a>
           <a
             href="#sessions"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-4 text-base font-medium text-foreground transition hover:bg-surface"
+            className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-2xl border border-border px-4 py-3.5 text-sm font-medium text-foreground transition hover:bg-surface sm:flex-none sm:px-7 sm:py-4 sm:text-base"
           >
             See the sessions
           </a>
@@ -143,7 +241,7 @@ function Marquee() {
 
 function Why() {
   return (
-    <section className="border-b border-border/60 px-6 py-24">
+    <section className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Why this, why now</div>
@@ -194,7 +292,7 @@ function Sessions() {
   ];
 
   return (
-    <section id="sessions" className="border-b border-border/60 px-6 py-24">
+    <section id="sessions" className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex items-end justify-between gap-6">
           <div>
@@ -214,7 +312,7 @@ function Sessions() {
               className="group relative flex flex-col rounded-2xl border border-border bg-surface-elevated p-8 transition hover:border-foreground/30"
             >
               <div className="flex items-center justify-between">
-                <span className="rounded-full bg-foreground px-3 py-1 text-xs font-medium text-background">
+                <span className="rounded-2xl bg-foreground px-3 py-1 text-xs font-medium text-background">
                   {s.tag}
                 </span>
                 <span className="font-mono text-xs text-muted-foreground">{s.time}</span>
@@ -245,7 +343,7 @@ function Outcomes() {
     "A checklist for what NOT to hand AI unsupervised",
   ];
   return (
-    <section id="outcomes" className="border-b border-border/60 bg-foreground px-6 py-24 text-background">
+    <section id="outcomes" className="border-b border-border/60 bg-foreground px-5 py-24 text-background sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="text-xs uppercase tracking-widest text-background/60">Outcomes</div>
         <h2 className="mt-3 max-w-3xl font-display text-4xl font-semibold md:text-6xl">
@@ -273,7 +371,7 @@ function Audience() {
     "Anyone tired of AI hype with no substance",
   ];
   return (
-    <section className="border-b border-border/60 px-6 py-24">
+    <section className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Audience</div>
@@ -299,7 +397,7 @@ function Audience() {
 
 function Trainer() {
   return (
-    <section id="trainer" className="border-b border-border/60 px-6 py-24">
+    <section id="trainer" className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="mb-14">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Who's teaching</div>
@@ -311,7 +409,7 @@ function Trainer() {
             <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="grid h-full w-full place-items-center text-muted-foreground">
                 <div className="text-center">
-                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-full bg-foreground/10 font-display text-3xl text-foreground">
+                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-2xl bg-foreground/10 font-display text-3xl text-foreground">
                     MJ
                   </div>
                   <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
@@ -327,11 +425,11 @@ function Trainer() {
             </h3>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+              <div className="rounded-2xl border border-border bg-surface-elevated p-4">
                 <div className="font-display text-3xl font-bold">100+</div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Businesses consulted</div>
               </div>
-              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+              <div className="rounded-2xl border border-border bg-surface-elevated p-4">
                 <div className="font-display text-3xl font-bold">125K+</div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers on Instagram</div>
               </div>
@@ -360,11 +458,11 @@ function Trainer() {
             </h3>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+              <div className="rounded-2xl border border-border bg-surface-elevated p-4">
                 <div className="font-display text-3xl font-bold">200K+</div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers on Instagram</div>
               </div>
-              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+              <div className="rounded-2xl border border-border bg-surface-elevated p-4">
                 <div className="font-display text-3xl font-bold">AI</div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Content & creator economy</div>
               </div>
@@ -383,7 +481,7 @@ function Trainer() {
             <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="grid h-full w-full place-items-center text-muted-foreground">
                 <div className="text-center">
-                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-full bg-foreground/10 font-display text-3xl text-foreground">
+                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-2xl bg-foreground/10 font-display text-3xl text-foreground">
                     YS
                   </div>
                   <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
@@ -400,7 +498,7 @@ function Trainer() {
 
 function Pricing() {
   return (
-    <section id="register" className="border-b border-border/60 px-6 py-24">
+    <section id="register" className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Reserve your seat</div>
@@ -416,7 +514,7 @@ function Pricing() {
             />
             <div className="relative">
               <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-background/60">
-                <span className="rounded-full bg-accent-lime px-2 py-0.5 text-[10px] font-bold text-foreground">
+                <span className="rounded-2xl bg-accent-lime px-2 py-0.5 text-[10px] font-bold text-foreground">
                   Most popular
                 </span>
                 <span>· Save ₹999</span>
@@ -434,7 +532,7 @@ function Pricing() {
               </ul>
               <a
                 href="#"
-                className="mt-8 block rounded-full bg-accent-lime py-3 text-center font-semibold text-foreground transition hover:opacity-90"
+                className="mt-8 block rounded-2xl bg-accent-lime py-3 text-center font-semibold text-foreground transition hover:opacity-90"
               >
                 Reserve combined →
               </a>
@@ -454,7 +552,7 @@ function Pricing() {
               </div>
               <a
                 href="#"
-                className="mt-8 block rounded-full border border-foreground py-3 text-center font-medium transition hover:bg-foreground hover:text-background"
+                className="mt-8 block rounded-2xl border border-foreground py-3 text-center font-medium transition hover:bg-foreground hover:text-background"
               >
                 Single session
               </a>
@@ -475,7 +573,7 @@ function FAQ() {
     ["What's the refund / reschedule policy?", "Seats are non-refundable. In case of a date change from our side, you'll be moved to the new date automatically."],
   ];
   return (
-    <section id="faq" className="border-b border-border/60 px-6 py-24">
+    <section id="faq" className="border-b border-border/60 px-5 py-24 sm:px-6">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">FAQ</div>
@@ -498,7 +596,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden px-6 py-32">
+    <section className="relative overflow-hidden px-5 py-32 sm:px-6">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -516,13 +614,13 @@ function FinalCTA() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#"
-            className="rounded-full bg-foreground px-8 py-4 text-base font-medium text-background transition hover:opacity-90"
+            className="rounded-2xl bg-foreground px-8 py-4 text-base font-medium text-background transition hover:opacity-90"
           >
             Register — ₹1,999 / session
           </a>
           <a
             href="#"
-            className="rounded-full border border-foreground px-8 py-4 text-base font-medium transition hover:bg-foreground hover:text-background"
+            className="rounded-2xl border border-foreground px-8 py-4 text-base font-medium transition hover:bg-foreground hover:text-background"
           >
             Combined — ₹2,999
           </a>
@@ -534,11 +632,9 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-surface px-6 py-12">
+    <footer className="border-t border-border bg-surface px-5 py-12 sm:px-6">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-        <div className="flex items-center gap-6">
-          <Logo />
-        </div>
+        <Logo />
         <div className="text-sm text-muted-foreground">
           Phaze AI × JECRC University · Jaipur · 18 July
         </div>
