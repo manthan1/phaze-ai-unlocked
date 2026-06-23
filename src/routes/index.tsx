@@ -468,11 +468,11 @@ function Pricing() {
 }
 
 function FAQ() {
-  const faqs = [
+  const faqs: [string, string][] = [
     ["Is this beginner-friendly?", "Yes — no technical background needed."],
     ["What's included?", "Both sessions, workbook/resources, and the AI agent templates covered live."],
     ["Can my team attend?", "Yes, multiple seats can be booked."],
-    ["What's the refund / reschedule policy?", "Details will be shared on confirmation. Reach out to manthanjethwani@phazeai.com."],
+    ["What's the refund / reschedule policy?", "Seats are non-refundable. In case of a date change from our side, you'll be moved to the new date automatically."],
   ];
   return (
     <section id="faq" className="border-b border-border/60 px-6 py-24">
@@ -540,15 +540,13 @@ function Footer() {
           <Logo />
         </div>
         <div className="text-sm text-muted-foreground">
-          Trainer: Manthan Jethwani ·{" "}
-          <a href="mailto:manthanjethwani@phazeai.com" className="underline hover:text-foreground">
-            manthanjethwani@phazeai.com
-          </a>
+          Phaze AI × JECRC University · Jaipur · 18 July
         </div>
       </div>
     </footer>
   );
 }
+
 
 function Landing() {
   return (
