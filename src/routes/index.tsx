@@ -27,16 +27,16 @@ function Logo() {
         <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
           P
         </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
           Phaze AI
         </span>
       </div>
-      <span className="text-muted-foreground/60 font-display text-lg">×</span>
+      <span className="text-muted-foreground/60 font-display text-base sm:text-lg">×</span>
       <div className="flex items-center gap-2">
         <div className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface-elevated font-display text-sm font-bold">
           JU
         </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
           JECRC
         </span>
       </div>
