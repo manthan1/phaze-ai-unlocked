@@ -75,9 +75,32 @@ function Hero() {
         style={{ background: "radial-gradient(circle, var(--accent-lime), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-24">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent-lime" />
-          Phaze AI × JECRC University · Jaipur · 18 July
+        <div className="mb-8 flex flex-col items-start gap-4">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-surface-elevated/80 px-5 py-4 backdrop-blur">
+            {/* Phaze AI full logo placeholder */}
+            <div className="flex items-center gap-2.5">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
+                P
+              </div>
+              <span className="font-display text-base font-semibold tracking-tight sm:text-lg">
+                Phaze AI
+              </span>
+            </div>
+            <span className="text-muted-foreground/50 font-display text-xl">×</span>
+            {/* JECRC full logo placeholder */}
+            <div className="flex items-center gap-2.5">
+              <div className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-background font-display text-sm font-bold">
+                JU
+              </div>
+              <span className="font-display text-base font-semibold tracking-tight sm:text-lg">
+                JECRC University
+              </span>
+            </div>
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent-lime" />
+            Jaipur · Saturday, 18 July
+          </div>
         </div>
 
         <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-balance md:text-7xl lg:text-8xl">
