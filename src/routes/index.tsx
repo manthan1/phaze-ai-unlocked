@@ -478,7 +478,6 @@ function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
         <div className="flex items-center gap-6">
           <Logo />
-          <span className="text-sm text-muted-foreground">× JECRC University</span>
         </div>
         <div className="text-sm text-muted-foreground">
           Trainer: Manthan Jethwani ·{" "}
