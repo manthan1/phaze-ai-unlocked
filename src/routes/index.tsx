@@ -147,7 +147,7 @@ function Why() {
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Why this, why now</div>
-          <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">Context before the pitch.</h2>
+          <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">AI is moving fast. Don't get left behind.</h2>
         </div>
         <div className="md:col-span-8">
           <blockquote className="border-l-2 border-accent-lime pl-6 font-display text-2xl leading-snug text-balance md:text-3xl">
