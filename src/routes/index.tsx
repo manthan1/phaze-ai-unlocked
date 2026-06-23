@@ -22,21 +22,21 @@ export const Route = createFileRoute("/")({
 
 function Logo() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       <div className="flex items-center gap-2">
         <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
           P
         </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
           Phaze AI
         </span>
       </div>
-      <span className="text-muted-foreground/60 font-display text-lg">×</span>
+      <span className="text-muted-foreground/60 font-display text-base sm:text-lg">×</span>
       <div className="flex items-center gap-2">
         <div className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface-elevated font-display text-sm font-bold">
           JU
         </div>
-        <span className="font-display text-lg font-semibold tracking-tight hidden sm:inline">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
           JECRC
         </span>
       </div>
@@ -47,7 +47,7 @@ function Logo() {
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
         <Logo />
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#sessions" className="hover:text-foreground">Sessions</a>
