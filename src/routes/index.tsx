@@ -22,47 +22,22 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-function Logo() {
-  return (
-    <div className="flex items-center gap-2 sm:gap-3">
-      <div className="flex items-center gap-2">
-        <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
-          P
-        </div>
-        <span className="font-display text-base sm:text-lg font-semibold tracking-tight hidden sm:inline">
-          Phaze AI
-        </span>
-      </div>
-      <span className="text-muted-foreground/60 font-display text-base sm:text-lg">×</span>
-      <div className="flex items-center gap-2">
-        <div className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface-elevated font-display text-sm font-bold">
-          JU
-        </div>
-        <span className="font-display text-base sm:text-lg font-semibold tracking-tight hidden sm:inline">
-          JECRC
-        </span>
-      </div>
-    </div>
-  );
-}
-
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
-        <Logo />
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+        <div className="flex h-10 items-center rounded-lg bg-foreground px-2.5">
+          <img src={phazeLogo.url} alt="Phaze AI" className="h-6 w-auto object-contain sm:h-7" />
+        </div>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#sessions" className="hover:text-foreground">Sessions</a>
           <a href="#outcomes" className="hover:text-foreground">Outcomes</a>
           <a href="#trainer" className="hover:text-foreground">Trainers</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
-        <a
-          href="#register"
-          className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition hover:opacity-90"
-        >
-          Reserve seat
-        </a>
+        <div className="flex h-10 items-center rounded-lg bg-white px-2.5">
+          <img src={jecrcLogo.url} alt="JECRC University" className="h-7 w-auto object-contain sm:h-8" />
+        </div>
       </div>
     </header>
   );
