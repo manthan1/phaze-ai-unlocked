@@ -27,7 +27,7 @@ function Logo() {
         <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
           P
         </div>
-        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight hidden sm:inline">
           Phaze AI
         </span>
       </div>
@@ -36,7 +36,7 @@ function Logo() {
         <div className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface-elevated font-display text-sm font-bold">
           JU
         </div>
-        <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
+        <span className="font-display text-base sm:text-lg font-semibold tracking-tight hidden sm:inline">
           JECRC
         </span>
       </div>
