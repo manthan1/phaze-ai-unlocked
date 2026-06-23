@@ -157,7 +157,7 @@ function Hero() {
         className="absolute -top-40 right-0 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle, var(--accent-lime), transparent 70%)" }}
       />
-      <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-16 md:pt-24">
+      <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-14 sm:px-6 sm:pb-20 sm:pt-20 md:pt-24">
         <h1 className="font-display text-[2.75rem] font-bold leading-[0.95] tracking-tight text-balance sm:text-5xl md:text-7xl lg:text-8xl">
           AI, made useful
           <br />
@@ -172,20 +172,21 @@ function Hero() {
         <div className="mt-6 flex flex-nowrap items-center gap-3 sm:mt-10 sm:gap-4">
           <a
             href="#register"
-            className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-foreground px-4 py-3.5 text-sm font-medium text-background transition hover:opacity-90 sm:flex-none sm:px-7 sm:py-4 sm:text-base"
+            className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-foreground px-4 py-3.5 text-sm font-medium text-background transition hover:opacity-90 sm:flex-none sm:px-7 sm:py-4 sm:text-base"
           >
             Reserve your seat
             <span className="transition group-hover:translate-x-0.5">→</span>
           </a>
           <a
             href="#sessions"
-            className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-2xl border border-border px-4 py-3.5 text-sm font-medium text-foreground transition hover:bg-surface sm:flex-none sm:px-7 sm:py-4 sm:text-base"
+            className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-border px-4 py-3.5 text-sm font-medium text-foreground transition hover:bg-surface sm:flex-none sm:px-7 sm:py-4 sm:text-base"
           >
             See the sessions
           </a>
         </div>
 
-        <dl className="mt-8 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-4 sm:mt-16 sm:gap-x-8 sm:gap-y-6 md:grid-cols-4">
+        <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-4 sm:mt-20 sm:gap-x-8 sm:gap-y-6 md:grid-cols-4">
+
           {[
             ["Date", "Sat, 18 July"],
             ["Time", "12 PM – 5 PM"],
