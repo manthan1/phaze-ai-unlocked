@@ -27,9 +27,6 @@ function Logo() {
         <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
           P
         </div>
-        <div className="grid h-9 w-9 place-items-center rounded-lg bg-foreground text-background font-display text-lg font-bold">
-          P
-        </div>
         <span className="font-display text-base sm:text-lg font-semibold tracking-tight">
           Phaze AI
         </span>
