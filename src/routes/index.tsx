@@ -157,24 +157,19 @@ function Hero() {
         className="absolute -top-40 right-0 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle, var(--accent-lime), transparent 70%)" }}
       />
-      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-6 md:pt-24">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-2xl border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent-lime" />
-          Phaze AI × JECRC University · Jaipur · 18 July
-        </div>
-
-        <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-balance md:text-7xl lg:text-8xl">
+      <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-16 md:pt-24">
+        <h1 className="font-display text-[2.75rem] font-bold leading-[0.95] tracking-tight text-balance sm:text-5xl md:text-7xl lg:text-8xl">
           AI, made useful
           <br />
           for your <span className="italic text-muted-foreground">business.</span>
         </h1>
 
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
+        <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:mt-8 sm:text-lg md:text-xl">
           Learn how to use AI in your business, and how to scale your brand on social media —
           practical sessions built for business owners, not engineers.
         </p>
 
-        <div className="mt-10 flex flex-nowrap items-center gap-3 sm:gap-4">
+        <div className="mt-6 flex flex-nowrap items-center gap-3 sm:mt-10 sm:gap-4">
           <a
             href="#register"
             className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-foreground px-4 py-3.5 text-sm font-medium text-background transition hover:opacity-90 sm:flex-none sm:px-7 sm:py-4 sm:text-base"
@@ -190,7 +185,7 @@ function Hero() {
           </a>
         </div>
 
-        <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-4">
+        <dl className="mt-8 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-4 sm:mt-16 sm:gap-x-8 sm:gap-y-6 md:grid-cols-4">
           {[
             ["Date", "Sat, 18 July"],
             ["Time", "12 PM – 5 PM"],
@@ -198,8 +193,8 @@ function Hero() {
             ["Price", "₹1,999 / session"],
           ].map(([k, v]) => (
             <div key={k}>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">{k}</dt>
-              <dd className="mt-1 font-display text-lg font-medium">{v}</dd>
+              <dt className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">{k}</dt>
+              <dd className="mt-1 font-display text-base font-medium sm:text-lg">{v}</dd>
             </div>
           ))}
         </dl>
