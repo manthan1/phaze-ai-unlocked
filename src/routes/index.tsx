@@ -52,7 +52,7 @@ function Nav() {
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#sessions" className="hover:text-foreground">Sessions</a>
           <a href="#outcomes" className="hover:text-foreground">Outcomes</a>
-          <a href="#trainer" className="hover:text-foreground">Trainer</a>
+          <a href="#trainer" className="hover:text-foreground">Trainers</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
         <a
