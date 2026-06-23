@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. ₹1,999/session or ₹3,000 combined.",
+          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. ₹1,999/session or ₹2,999 combined.",
       },
     ],
   }),
@@ -189,7 +189,7 @@ function Sessions() {
             <h2 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Session breakdown.</h2>
           </div>
           <div className="hidden text-right text-sm text-muted-foreground md:block">
-            Save ₹998<br />
+            Save ₹999<br />
             <span className="text-foreground">when you book combined.</span>
           </div>
         </div>
@@ -336,53 +336,59 @@ function Pricing() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="relative overflow-hidden rounded-2xl border-2 border-foreground bg-foreground p-8 text-background md:order-2 md:-my-4 md:shadow-2xl">
+            <div
+              className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-40 blur-2xl"
+              style={{ background: "var(--accent-lime)" }}
+            />
+            <div className="relative">
+              <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-background/60">
+                <span className="rounded-full bg-accent-lime px-2 py-0.5 text-[10px] font-bold text-foreground">
+                  Most popular
+                </span>
+                <span>· Save ₹999</span>
+              </div>
+              <div className="mt-3 font-display text-2xl font-semibold">Both sessions</div>
+              <div className="mt-1 font-mono text-sm text-background/60">12 PM – 5 PM · Full day</div>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-display text-5xl font-bold">₹2,999</span>
+                <span className="font-mono text-sm text-background/50 line-through">₹3,998</span>
+              </div>
+              <ul className="mt-6 space-y-2 text-sm text-background/80">
+                <li>✓ AI for Business (Session 1)</li>
+                <li>✓ AI for Content & Social (Session 2)</li>
+                <li>✓ Workbook + agent templates</li>
+              </ul>
+              <a
+                href="#"
+                className="mt-8 block rounded-full bg-accent-lime py-3 text-center font-semibold text-foreground transition hover:opacity-90"
+              >
+                Reserve combined →
+              </a>
+            </div>
+          </div>
+
           {[
-            { name: "Session 1", desc: "AI for Business", price: "1,999", time: "12 – 2 PM" },
-            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", time: "3 – 5 PM" },
+            { name: "Session 1", desc: "AI for Business", price: "1,999", time: "12 – 2 PM", order: "md:order-1" },
+            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", time: "3 – 5 PM", order: "md:order-3" },
           ].map((p) => (
-            <div key={p.name} className="rounded-2xl border border-border bg-surface-elevated p-8">
+            <div key={p.name} className={`rounded-2xl border border-border bg-surface-elevated p-8 ${p.order}`}>
               <div className="text-xs uppercase tracking-widest text-muted-foreground">{p.name}</div>
               <div className="mt-2 font-display text-2xl font-semibold">{p.desc}</div>
               <div className="mt-1 font-mono text-sm text-muted-foreground">{p.time}</div>
-              <div className="mt-8 flex items-baseline gap-1">
+              <div className="mt-6 flex items-baseline gap-1">
                 <span className="font-display text-5xl font-bold">₹{p.price}</span>
               </div>
               <a
                 href="#"
                 className="mt-8 block rounded-full border border-foreground py-3 text-center font-medium transition hover:bg-foreground hover:text-background"
               >
-                Reserve seat
+                Single session
               </a>
             </div>
           ))}
-
-          <div className="relative overflow-hidden rounded-2xl border border-foreground bg-foreground p-8 text-background">
-            <div
-              className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-40 blur-2xl"
-              style={{ background: "var(--accent-lime)" }}
-            />
-            <div className="relative">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-background/60">
-                Combined
-                <span className="rounded-full bg-accent-lime px-2 py-0.5 text-[10px] font-semibold text-foreground">
-                  Save ₹998
-                </span>
-              </div>
-              <div className="mt-2 font-display text-2xl font-semibold">Both sessions</div>
-              <div className="mt-1 font-mono text-sm text-background/60">12 PM – 5 PM</div>
-              <div className="mt-8 flex items-baseline gap-2">
-                <span className="font-display text-5xl font-bold">₹3,000</span>
-                <span className="font-mono text-sm text-background/50 line-through">₹3,998</span>
-              </div>
-              <a
-                href="#"
-                className="mt-8 block rounded-full bg-background py-3 text-center font-medium text-foreground transition hover:opacity-90"
-              >
-                Reserve combined
-              </a>
-            </div>
-          </div>
         </div>
+
       </div>
     </section>
   );
@@ -445,7 +451,7 @@ function FinalCTA() {
             href="#"
             className="rounded-full border border-foreground px-8 py-4 text-base font-medium transition hover:bg-foreground hover:text-background"
           >
-            Combined — ₹3,000
+            Combined — ₹2,999
           </a>
         </div>
       </div>
