@@ -52,7 +52,7 @@ function Nav() {
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#sessions" className="hover:text-foreground">Sessions</a>
           <a href="#outcomes" className="hover:text-foreground">Outcomes</a>
-          <a href="#trainer" className="hover:text-foreground">Trainer</a>
+          <a href="#trainer" className="hover:text-foreground">Trainers</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
         <a
@@ -300,43 +300,103 @@ function Audience() {
 function Trainer() {
   return (
     <section id="trainer" className="border-b border-border/60 px-6 py-24">
-      <div className="mx-auto grid max-w-6xl items-start gap-12 md:grid-cols-12">
-        <div className="md:col-span-5">
-          <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
-            <div className="grid h-full w-full place-items-center text-muted-foreground">
-              <div className="text-center">
-                <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-full bg-foreground/10 font-display text-3xl text-foreground">
-                  MJ
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14">
+          <div className="text-xs uppercase tracking-widest text-muted-foreground">Who's teaching</div>
+          <h2 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Your trainers.</h2>
+        </div>
+
+        <div className="grid items-start gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
+              <div className="grid h-full w-full place-items-center text-muted-foreground">
+                <div className="text-center">
+                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-full bg-foreground/10 font-display text-3xl text-foreground">
+                    MJ
+                  </div>
+                  <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
                 </div>
-                <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
               </div>
             </div>
           </div>
+          <div className="md:col-span-7">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground">Lead Trainer</div>
+            <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
+              Manthan Jethwani
+              <span className="block text-muted-foreground text-2xl md:text-3xl">Founder, Phaze AI</span>
+            </h3>
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+                <div className="font-display text-3xl font-bold">100+</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Businesses consulted</div>
+              </div>
+              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+                <div className="font-display text-3xl font-bold">125K+</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers on Instagram</div>
+              </div>
+            </div>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              Manthan runs Phaze AI — consulting 100+ businesses and implementing real AI
+              solutions inside their systems: custom agents, content workflows, sales and
+              operations automation.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              This session is built from real implementation work — the same playbooks used
+              with paying clients, simplified for a room of business owners.
+            </p>
+          </div>
         </div>
-        <div className="md:col-span-7">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">Trainer</div>
-          <h2 className="mt-3 font-display text-4xl font-semibold md:text-5xl">
-            Manthan Jethwani
-            <span className="block text-muted-foreground">Founder, Phaze AI</span>
-          </h2>
-          <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-            Manthan runs Phaze AI, an agency helping businesses adopt AI through practical tools,
-            custom AI agents, and hands-on training — not theory.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            This session is built from real implementation work across content, sales, operations,
-            and marketing — the same playbooks used with paying clients, simplified for a room of
-            business owners.
-          </p>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border px-4 py-2 font-mono text-sm">
-            <span className="h-2 w-2 rounded-full bg-accent-lime" />
-            manthanjethwani@phazeai.com
+
+        <div className="my-16 h-px bg-border" />
+
+        <div className="grid items-start gap-12 md:grid-cols-12">
+          <div className="md:col-span-7 md:order-2">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground">Guest Trainer</div>
+            <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
+              Yashika Sadhwani
+              <span className="block text-muted-foreground text-2xl md:text-3xl">AI Influencer & Creator</span>
+            </h3>
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+                <div className="font-display text-3xl font-bold">200K+</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers on Instagram</div>
+              </div>
+              <div className="rounded-xl border border-border bg-surface-elevated p-4">
+                <div className="font-display text-3xl font-bold">AI</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Content & creator economy</div>
+              </div>
+            </div>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              Yashika is one of India's leading AI content creators — breaking down AI tools,
+              workflows and trends to a community of 200K+ on Instagram.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              She joins as a guest trainer for the content & social session, sharing exactly
+              how she uses AI to create, scale and stay ahead as a creator.
+            </p>
+          </div>
+          <div className="md:col-span-5 md:order-1">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
+              <div className="grid h-full w-full place-items-center text-muted-foreground">
+                <div className="text-center">
+                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-full bg-foreground/10 font-display text-3xl text-foreground">
+                    YS
+                  </div>
+                  <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Pricing() {
   return (
@@ -408,11 +468,11 @@ function Pricing() {
 }
 
 function FAQ() {
-  const faqs = [
+  const faqs: [string, string][] = [
     ["Is this beginner-friendly?", "Yes — no technical background needed."],
     ["What's included?", "Both sessions, workbook/resources, and the AI agent templates covered live."],
     ["Can my team attend?", "Yes, multiple seats can be booked."],
-    ["What's the refund / reschedule policy?", "Details will be shared on confirmation. Reach out to manthanjethwani@phazeai.com."],
+    ["What's the refund / reschedule policy?", "Seats are non-refundable. In case of a date change from our side, you'll be moved to the new date automatically."],
   ];
   return (
     <section id="faq" className="border-b border-border/60 px-6 py-24">
@@ -480,15 +540,13 @@ function Footer() {
           <Logo />
         </div>
         <div className="text-sm text-muted-foreground">
-          Trainer: Manthan Jethwani ·{" "}
-          <a href="mailto:manthanjethwani@phazeai.com" className="underline hover:text-foreground">
-            manthanjethwani@phazeai.com
-          </a>
+          Phaze AI × JECRC University · Jaipur · 18 July
         </div>
       </div>
     </footer>
   );
 }
+
 
 function Landing() {
   return (
