@@ -524,8 +524,14 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-surface px-6 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-        <div className="flex items-center gap-6">
-          <Logo />
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 items-center rounded-lg bg-foreground px-2.5">
+            <img src={phazeLogo.url} alt="Phaze AI" className="h-5 w-auto object-contain" />
+          </div>
+          <span className="text-muted-foreground/50 font-display">×</span>
+          <div className="flex h-9 items-center rounded-lg bg-white px-2.5">
+            <img src={jecrcLogo.url} alt="JECRC University" className="h-6 w-auto object-contain" />
+          </div>
         </div>
         <div className="text-sm text-muted-foreground">
           Phaze AI × JECRC University · Jaipur · 18 July
