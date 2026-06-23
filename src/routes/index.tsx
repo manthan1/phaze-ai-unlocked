@@ -87,77 +87,62 @@ function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-[60] grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-surface-elevated transition active:scale-95 md:hidden"
+          className="relative z-[60] grid h-11 w-11 shrink-0 place-items-center transition active:scale-95 md:hidden"
         >
-          <span className="relative block h-4 w-5">
+          <span className="relative block h-4 w-6">
             <span
-              className={`absolute left-0 top-0 block h-0.5 w-5 bg-foreground transition-transform duration-300 ${
-                open ? "translate-y-[7px] rotate-45" : ""
+              className={`absolute left-0 top-0 block h-px w-6 bg-foreground transition-transform duration-300 ${
+                open ? "translate-y-[8px] rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute left-0 top-[7px] block h-0.5 w-5 bg-foreground transition-opacity duration-200 ${
+              className={`absolute left-0 top-[8px] block h-px w-6 bg-foreground transition-opacity duration-200 ${
                 open ? "opacity-0" : "opacity-100"
               }`}
             />
             <span
-              className={`absolute left-0 top-[14px] block h-0.5 w-5 bg-foreground transition-transform duration-300 ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
+              className={`absolute left-0 top-[16px] block h-px w-6 bg-foreground transition-transform duration-300 ${
+                open ? "-translate-y-[8px] -rotate-45" : ""
               }`}
             />
           </span>
         </button>
       </div>
 
-      {/* Mobile fullscreen overlay */}
+      {/* Mobile dropdown (below navbar so logos stay visible) */}
       <div
-        className={`fixed inset-0 z-50 md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`overflow-hidden border-border/60 bg-background/95 backdrop-blur-md transition-[max-height,border] duration-500 ease-[cubic-bezier(0.83,0,0.17,1)] md:hidden ${
+          open ? "max-h-[80vh] border-t" : "max-h-0"
+        }`}
         aria-hidden={!open}
       >
-        <div
-          className="absolute inset-0 bg-background transition-[clip-path] duration-500 ease-[cubic-bezier(0.83,0,0.17,1)]"
-          style={{
-            clipPath: open
-              ? "circle(150% at calc(100% - 36px) 36px)"
-              : "circle(0% at calc(100% - 36px) 36px)",
-          }}
-        />
-        <div
-          className={`relative flex h-full flex-col px-6 pt-24 pb-10 transition-opacity duration-300 ${
-            open ? "opacity-100 delay-200" : "opacity-0"
-          }`}
-        >
-          <nav className="flex flex-col gap-2">
+        <div className="px-6 pb-8 pt-6">
+          <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((l, i) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-display text-4xl font-semibold tracking-tight text-foreground transition-transform"
+                className="block py-2 font-display text-3xl font-semibold tracking-tight text-foreground"
                 style={{
-                  transform: open ? "translateY(0)" : "translateY(20px)",
+                  transform: open ? "translateY(0)" : "translateY(12px)",
                   opacity: open ? 1 : 0,
                   transitionProperty: "transform, opacity",
-                  transitionDuration: "400ms",
-                  transitionDelay: open ? `${250 + i * 60}ms` : "0ms",
+                  transitionDuration: "350ms",
+                  transitionDelay: open ? `${120 + i * 50}ms` : "0ms",
                 }}
               >
                 {l.label}
               </a>
             ))}
           </nav>
-          <div className="mt-auto pt-10">
-            <a
-              href="#register"
-              onClick={() => setOpen(false)}
-              className="block rounded-2xl bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition hover:opacity-90"
-            >
-              Reserve your seat →
-            </a>
-            <p className="mt-4 text-center text-xs uppercase tracking-widest text-muted-foreground">
-              18 July · JECRC University, Jaipur
-            </p>
-          </div>
+          <a
+            href="#register"
+            onClick={() => setOpen(false)}
+            className="mt-6 block rounded-2xl bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition hover:opacity-90"
+          >
+            Reserve your seat →
+          </a>
         </div>
       </div>
     </header>
