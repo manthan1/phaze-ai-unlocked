@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. ₹1,999/session or ₹3,000 combined.",
+          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. ₹1,999/session or ₹2,999 combined.",
       },
     ],
   }),
@@ -189,7 +189,7 @@ function Sessions() {
             <h2 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Session breakdown.</h2>
           </div>
           <div className="hidden text-right text-sm text-muted-foreground md:block">
-            Save ₹998<br />
+            Save ₹999<br />
             <span className="text-foreground">when you book combined.</span>
           </div>
         </div>
@@ -451,7 +451,7 @@ function FinalCTA() {
             href="#"
             className="rounded-full border border-foreground px-8 py-4 text-base font-medium transition hover:bg-foreground hover:text-background"
           >
-            Combined — ₹3,000
+            Combined — ₹2,999
           </a>
         </div>
       </div>
