@@ -156,9 +156,9 @@ function Why() {
           </blockquote>
           <p className="mt-8 text-lg text-muted-foreground">
             Every business owner has heard about AI. Few have actually used it to change how their
-            business runs day to day, or how their brand shows up on social media. This workshop
-            closes that gap — with the same tools and AI agents already being used to move faster,
-            on the same budget.
+            business runs day to day, or how their brand shows up on social media. Your competitors
+            aren't smarter than you — some are just already running AI agents for content and
+            follow-ups while you're still doing it by hand.
           </p>
         </div>
       </div>
@@ -185,10 +185,10 @@ function Sessions() {
       time: "3:00 PM – 5:00 PM",
       title: "AI for Content & Social Media Scaling",
       points: [
-        "How to scale your brand's presence on social media using AI",
-        "7 different Claude skills and AI agents for content creation, repurposing, distribution",
-        "Building a content system, not just one-off posts",
-        "Live demos — not theory",
+        "Finding content ideas that actually go viral",
+        "Using AI to generate creatives, ads, and social posts in minutes",
+        "7 Claude skills for content creation, repurposing, and distribution",
+        "Building a weekly content system — not just one-off posts",
       ],
     },
   ];
@@ -239,10 +239,10 @@ function Sessions() {
 
 function Outcomes() {
   const items = [
-    "A working understanding of AI tools relevant to your business",
+    "How to turn Claude into a working employee — not just a chatbot you ask questions",
     "7 Claude skills / AI agents you can start using immediately",
-    "A framework for scaling your brand's content on social media",
-    "Clarity on what AI can and can't do — realistic expectations, like onboarding a new employee",
+    "A repeatable system for turning one piece of content into 5+ posts across platforms",
+    "A checklist for what NOT to hand AI unsupervised",
   ];
   return (
     <section id="outcomes" className="border-b border-border/60 bg-foreground px-6 py-24 text-background">
