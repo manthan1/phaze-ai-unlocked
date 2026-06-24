@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import phazeLogo from "@/assets/phaze-ai-logo.png.asset.json";
 import jecrcLogo from "@/assets/jecrc-logo.png.asset.json";
+import { RegisterDialog, openRegister } from "@/components/RegisterDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,12 +75,13 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#register"
+        <button
+          type="button"
+          onClick={() => openRegister("combined")}
           className="hidden rounded-2xl bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90 md:inline-flex"
         >
           Reserve seat
-        </a>
+        </button>
 
         {/* Mobile hamburger */}
         <button
@@ -136,13 +138,16 @@ function Nav() {
               </a>
             ))}
           </nav>
-          <a
-            href="#register"
-            onClick={() => setOpen(false)}
-            className="mt-6 block rounded-2xl bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition hover:opacity-90"
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openRegister("combined");
+            }}
+            className="mt-6 block w-full rounded-2xl bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition hover:opacity-90"
           >
             Reserve your seat →
-          </a>
+          </button>
         </div>
       </div>
     </header>
@@ -170,13 +175,14 @@ function Hero() {
         </p>
 
         <div className="mt-6 flex flex-nowrap items-center gap-3 sm:mt-10 sm:gap-4">
-          <a
-            href="#register"
+          <button
+            type="button"
+            onClick={() => openRegister("combined")}
             className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-foreground px-4 py-3.5 text-sm font-medium text-background transition hover:opacity-90 sm:flex-none sm:px-7 sm:py-4 sm:text-base"
           >
             Reserve your seat
             <span className="transition group-hover:translate-x-0.5">→</span>
-          </a>
+          </button>
           <a
             href="#sessions"
             className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-border px-4 py-3.5 text-sm font-medium text-foreground transition hover:bg-surface sm:flex-none sm:px-7 sm:py-4 sm:text-base"
@@ -511,19 +517,20 @@ function Pricing() {
                 <li>✓ AI for Content & Social (Session 2)</li>
                 <li>✓ Workbook + agent templates</li>
               </ul>
-              <a
-                href="#"
-                className="mt-8 block rounded-2xl bg-accent-lime py-3 text-center font-semibold text-foreground transition hover:opacity-90"
+              <button
+                type="button"
+                onClick={() => openRegister("combined")}
+                className="mt-8 block w-full rounded-2xl bg-accent-lime py-3 text-center font-semibold text-foreground transition hover:opacity-90"
               >
                 Reserve combined →
-              </a>
+              </button>
             </div>
           </div>
 
-          {[
-            { name: "Session 1", desc: "AI for Business", price: "1,999", time: "12 – 2 PM", order: "md:order-1" },
-            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", time: "3 – 5 PM", order: "md:order-3" },
-          ].map((p) => (
+          {([
+            { name: "Session 1", desc: "AI for Business", price: "1,999", time: "12 – 2 PM", order: "md:order-1", ticket: "session1" as const },
+            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", time: "3 – 5 PM", order: "md:order-3", ticket: "session2" as const },
+          ]).map((p) => (
             <div key={p.name} className={`rounded-2xl border border-border bg-surface-elevated p-8 ${p.order}`}>
               <div className="text-xs uppercase tracking-widest text-muted-foreground">{p.name}</div>
               <div className="mt-2 font-display text-2xl font-semibold">{p.desc}</div>
@@ -531,12 +538,13 @@ function Pricing() {
               <div className="mt-6 flex items-baseline gap-1">
                 <span className="font-display text-5xl font-bold">₹{p.price}</span>
               </div>
-              <a
-                href="#"
-                className="mt-8 block rounded-2xl border border-foreground py-3 text-center font-medium transition hover:bg-foreground hover:text-background"
+              <button
+                type="button"
+                onClick={() => openRegister(p.ticket)}
+                className="mt-8 block w-full rounded-2xl border border-foreground py-3 text-center font-medium transition hover:bg-foreground hover:text-background"
               >
                 Single session
-              </a>
+              </button>
             </div>
           ))}
         </div>
@@ -593,18 +601,20 @@ function FinalCTA() {
           Saturday, 18th July · JECRC University, Jaipur
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => openRegister("session1")}
             className="rounded-2xl bg-foreground px-8 py-4 text-base font-medium text-background transition hover:opacity-90"
           >
             Register — ₹1,999 / session
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
+            type="button"
+            onClick={() => openRegister("combined")}
             className="rounded-2xl border border-foreground px-8 py-4 text-base font-medium transition hover:bg-foreground hover:text-background"
           >
             Combined — ₹2,999
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -642,6 +652,7 @@ function Landing() {
         <FinalCTA />
       </main>
       <Footer />
+      <RegisterDialog />
     </div>
   );
 }
