@@ -259,6 +259,7 @@ function Sessions() {
       tag: "Session 1",
       time: "12:00 PM – 2:00 PM",
       title: "AI for Business",
+      ticket: "session1" as const,
       points: [
         "Why some businesses are moving 3x faster on the same team — and what they're actually doing differently",
         "Turn Claude into a working employee: set it up once, delegate to it daily",
@@ -271,6 +272,7 @@ function Sessions() {
       tag: "Session 2",
       time: "3:00 PM – 5:00 PM",
       title: "AI for Content & Social Media",
+      ticket: "session2" as const,
       points: [
         "How to find content ideas that spread — what the algorithm rewards, and how to reverse-engineer it with AI",
         "Go from one idea to 5 platform-ready posts in under 10 minutes — live, in the room",
