@@ -606,7 +606,7 @@ function FAQ() {
   const faqs: [string, string][] = [
     ["Is this my first AI workshop — will I be lost?", "No. The sessions are built for business owners with zero technical background. If you can use WhatsApp and Google Sheets, you're ready."],
     ["What if I can't make it on the 18th?", "Seats are non-refundable, but if you can't attend, you're welcome to send someone from your team in your place — just let us know in advance."],
-    ["Should I bring a laptop?", "Yes, please bring a laptop if you can — a lot of the session is hands-on, and you'll get the most out of it by practising live in the room."],
+    ["Should I bring a laptop?", "Yes, bring a laptop if you can — some parts of the session are live demonstrations and it's better to follow along on your own screen than watch from across the room."],
     ["What's included?", "Both sessions, workbook/resources, and the AI agent templates covered live."],
     ["Can my team attend?", "Yes, multiple seats can be booked."],
     ["What's the reschedule policy?", "In case of a date change from our side, you'll be moved to the new date automatically."],
