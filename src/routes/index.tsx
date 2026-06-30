@@ -413,7 +413,7 @@ function Trainer() {
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-2xl border border-border bg-surface-elevated p-4">
-                <div className="font-display text-3xl font-bold">100+</div>
+                <div className="font-display text-3xl font-bold">250+</div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Businesses consulted</div>
               </div>
               <div className="rounded-2xl border border-border bg-surface-elevated p-4">
@@ -423,7 +423,7 @@ function Trainer() {
             </div>
 
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Manthan runs Phaze AI — consulting 100+ businesses and implementing real AI
+              Manthan runs Phaze AI — consulting 250+ businesses and implementing real AI
               solutions inside their systems: custom agents, content workflows, sales and
               operations automation.
             </p>
@@ -437,6 +437,16 @@ function Trainer() {
         <div className="my-16 h-px bg-border" />
 
         <div className="grid items-start gap-12 md:grid-cols-12">
+          <div className="md:col-span-5 md:order-1">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
+              <img
+                src={yashikaPhoto.url}
+                alt="Yashika Sadhwani, AI educator and creator"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
           <div className="md:col-span-7 md:order-2">
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Guest Trainer</div>
             <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
@@ -464,16 +474,6 @@ function Trainer() {
               In this session she shares the exact workflows she uses to create high-converting
               content, ad creatives and copy using AI — fast and at scale.
             </p>
-          </div>
-          <div className="md:col-span-5 md:order-1">
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
-              <img
-                src={yashikaPhoto.url}
-                alt="Yashika Sadhwani, AI educator and creator"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
           </div>
         </div>
       </div>
