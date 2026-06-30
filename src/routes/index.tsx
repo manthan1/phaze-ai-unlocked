@@ -437,6 +437,16 @@ function Trainer() {
         <div className="my-16 h-px bg-border" />
 
         <div className="grid items-start gap-12 md:grid-cols-12">
+          <div className="md:col-span-5 md:order-1">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
+              <img
+                src={yashikaPhoto.url}
+                alt="Yashika Sadhwani, AI educator and creator"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
           <div className="md:col-span-7 md:order-2">
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Guest Trainer</div>
             <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
@@ -465,7 +475,6 @@ function Trainer() {
               content, ad creatives and copy using AI — fast and at scale.
             </p>
           </div>
-          <div className="md:col-span-5 md:order-1">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
               <img
                 src={yashikaPhoto.url}
