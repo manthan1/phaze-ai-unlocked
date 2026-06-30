@@ -318,9 +318,32 @@ function Sessions() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 font-mono text-6xl font-bold text-muted/40">0{i + 1}</div>
+              <div className="mt-8 flex items-end justify-between gap-4">
+                <div className="font-mono text-6xl font-bold text-muted/40">0{i + 1}</div>
+                <button
+                  onClick={() => openRegister(s.ticket)}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+                >
+                  Book now →
+                </button>
+              </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl border border-foreground bg-foreground p-6 text-background sm:flex-row sm:p-8">
+          <div>
+            <div className="text-xs uppercase tracking-widest text-background/60">Combined session</div>
+            <div className="mt-1 font-display text-xl font-semibold sm:text-2xl">
+              Book both sessions and save ₹999
+            </div>
+          </div>
+          <button
+            onClick={() => openRegister("combined")}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition hover:opacity-90 sm:w-auto"
+          >
+            Book combined →
+          </button>
         </div>
       </div>
     </section>
