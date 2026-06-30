@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import phazeLogo from "@/assets/phaze-ai-logo.png.asset.json";
 import jecrcLogo from "@/assets/jecrc-logo.png.asset.json";
+import manthanPhoto from "@/assets/manthan.jpg.asset.json";
+import yashikaPhoto from "@/assets/yashika.png.asset.json";
 import { RegisterDialog, openRegister } from "@/components/RegisterDialog";
 
 export const Route = createFileRoute("/")({
@@ -394,14 +396,12 @@ function Trainer() {
         <div className="grid items-start gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
-              <div className="grid h-full w-full place-items-center text-muted-foreground">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-2xl bg-foreground/10 font-display text-3xl text-foreground">
-                    MJ
-                  </div>
-                  <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
-                </div>
-              </div>
+              <img
+                src={manthanPhoto.url}
+                alt="Manthan Jethwani, Founder of Phaze AI"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
           <div className="md:col-span-7">
@@ -441,39 +441,38 @@ function Trainer() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Guest Trainer</div>
             <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
               Yashika Sadhwani
-              <span className="block text-muted-foreground text-2xl md:text-3xl">AI Influencer & Creator</span>
+              <span className="block text-muted-foreground text-2xl md:text-3xl">AI Educator & Creator</span>
             </h3>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-2xl border border-border bg-surface-elevated p-4">
-                <div className="font-display text-3xl font-bold">200K+</div>
-                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers on Instagram</div>
+                <div className="font-display text-3xl font-bold">700K+</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Followers across platforms</div>
               </div>
               <div className="rounded-2xl border border-border bg-surface-elevated p-4">
-                <div className="font-display text-3xl font-bold">AI</div>
-                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Content & creator economy</div>
+                <div className="font-display text-3xl font-bold">BCG · Zomato</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Previously</div>
               </div>
             </div>
 
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Yashika is one of India's leading AI content creators — breaking down AI tools,
-              workflows and trends to a community of 200K+ on Instagram.
+              Yashika is an AI educator and creator with 700K+ followers across platforms —
+              previously at BCG and Zomato, now building one of India's largest communities
+              around AI, content and marketing.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              She joins as a guest trainer for the content & social session, sharing exactly
-              how she uses AI to create, scale and stay ahead as a creator.
+              In this session she shares the exact workflows she uses to create high-converting
+              content, ad creatives and copy using AI — fast and at scale.
             </p>
           </div>
           <div className="md:col-span-5 md:order-1">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
-              <div className="grid h-full w-full place-items-center text-muted-foreground">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 grid h-24 w-24 place-items-center rounded-2xl bg-foreground/10 font-display text-3xl text-foreground">
-                    YS
-                  </div>
-                  <div className="text-sm uppercase tracking-widest">Photo placeholder</div>
-                </div>
-              </div>
+              <img
+                src={yashikaPhoto.url}
+                alt="Yashika Sadhwani, AI educator and creator"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
