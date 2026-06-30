@@ -475,15 +475,6 @@ function Trainer() {
               content, ad creatives and copy using AI — fast and at scale.
             </p>
           </div>
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
-              <img
-                src={yashikaPhoto.url}
-                alt="Yashika Sadhwani, AI educator and creator"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
