@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. ₹1,999/session or ₹2,999 combined.",
+          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. Early bird ₹1,999/session or ₹2,999 combined (till 7 June).",
       },
     ],
   }),
@@ -517,15 +517,15 @@ function Pricing() {
             <div className="relative">
               <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-background/60">
                 <span className="rounded-2xl bg-accent-lime px-2 py-0.5 text-[10px] font-bold text-foreground">
-                  Most popular
+                  Early bird · till 7 June
                 </span>
-                <span>· Save ₹999</span>
+                <span>· Most popular</span>
               </div>
               <div className="mt-3 font-display text-2xl font-semibold">Both sessions</div>
               <div className="mt-1 font-mono text-sm text-background/60">12 PM – 5 PM · Full day</div>
               <div className="mt-6 flex items-baseline gap-2">
                 <span className="font-display text-5xl font-bold">₹2,999</span>
-                <span className="font-mono text-sm text-background/50 line-through">₹3,998</span>
+                <span className="font-mono text-sm text-background/50 line-through">₹3,999</span>
               </div>
               <ul className="mt-6 space-y-2 text-sm text-background/80">
                 <li>✓ AI for Business (Session 1)</li>
@@ -543,16 +543,23 @@ function Pricing() {
           </div>
 
           {([
-            { name: "Session 1", desc: "AI for Business", price: "1,999", time: "12 – 2 PM", order: "md:order-1", ticket: "session1" as const },
-            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", time: "3 – 5 PM", order: "md:order-3", ticket: "session2" as const },
+            { name: "Session 1", desc: "AI for Business", price: "1,999", original: "2,499", time: "12 – 2 PM", order: "md:order-1", ticket: "session1" as const },
+            { name: "Session 2", desc: "AI for Content & Social", price: "1,999", original: "2,499", time: "3 – 5 PM", order: "md:order-3", ticket: "session2" as const },
           ]).map((p) => (
             <div key={p.name} className={`rounded-2xl border border-border bg-surface-elevated p-8 ${p.order}`}>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">{p.name}</div>
+              <div className="flex items-center justify-between">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">{p.name}</div>
+                <span className="rounded-2xl bg-accent-lime/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground">
+                  Early bird
+                </span>
+              </div>
               <div className="mt-2 font-display text-2xl font-semibold">{p.desc}</div>
               <div className="mt-1 font-mono text-sm text-muted-foreground">{p.time}</div>
-              <div className="mt-6 flex items-baseline gap-1">
+              <div className="mt-6 flex items-baseline gap-2">
                 <span className="font-display text-5xl font-bold">₹{p.price}</span>
+                <span className="font-mono text-sm text-muted-foreground line-through">₹{p.original}</span>
               </div>
+              <div className="mt-1 text-xs text-muted-foreground">Early bird price · till 7 June</div>
               <button
                 type="button"
                 onClick={() => openRegister(p.ticket)}
