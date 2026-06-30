@@ -310,7 +310,7 @@ function Sessions() {
                 <span className="font-mono text-xs text-muted-foreground">{s.time}</span>
               </div>
               <h3 className="mt-8 font-display text-2xl font-semibold md:text-3xl">{s.title}</h3>
-              <ul className="mt-6 space-y-3 text-muted-foreground">
+              <ul className="mt-6 flex-1 space-y-3 text-muted-foreground">
                 {s.points.map((p) => (
                   <li key={p} className="flex gap-3">
                     <span className="mt-2.5 h-1 w-3 shrink-0 bg-foreground" />
