@@ -408,6 +408,14 @@ function Trainer() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Lead Trainer</div>
             <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
               Manthan Jethwani
+              <a
+                href="https://www.instagram.com/manthanjethwani/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-base font-normal text-muted-foreground underline-offset-4 hover:text-foreground hover:underline md:text-lg"
+              >
+                @manthanjethwani ↗
+              </a>
               <span className="block text-muted-foreground text-2xl md:text-3xl">Founder, Phaze AI</span>
             </h3>
 
@@ -451,6 +459,14 @@ function Trainer() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Guest Trainer</div>
             <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
               Yashika Sadhwani
+              <a
+                href="https://www.instagram.com/ainoobstoninjas/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-base font-normal text-muted-foreground underline-offset-4 hover:text-foreground hover:underline md:text-lg"
+              >
+                @ainoobstoninjas ↗
+              </a>
               <span className="block text-muted-foreground text-2xl md:text-3xl">AI Educator & Creator</span>
             </h3>
 
