@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. Early bird ₹1,999/session or ₹2,999 combined (till 7 June).",
+          "AI, made useful for your business. Saturday 18th July, JECRC University, Jaipur. Early bird ₹1,999/session or ₹2,999 combined (till 7 July).",
       },
     ],
   }),
@@ -543,7 +543,7 @@ function Pricing() {
             <div className="relative">
               <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-background/60">
                 <span className="rounded-2xl bg-accent-lime px-2 py-0.5 text-[10px] font-bold text-foreground">
-                  Early bird · till 7 June
+                  Early bird · till 7 July
                 </span>
                 <span>· Most popular</span>
               </div>
@@ -585,7 +585,7 @@ function Pricing() {
                 <span className="font-display text-5xl font-bold">₹{p.price}</span>
                 <span className="font-mono text-sm text-muted-foreground line-through">₹{p.original}</span>
               </div>
-              <div className="mt-1 text-xs text-muted-foreground">Early bird price · till 7 June</div>
+              <div className="mt-1 text-xs text-muted-foreground">Early bird price · till 7 July</div>
               <button
                 type="button"
                 onClick={() => openRegister(p.ticket)}
